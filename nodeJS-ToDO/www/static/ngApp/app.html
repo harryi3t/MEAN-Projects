@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html ng-app="www">
+  
+  <head lang="en">
+    <meta charset="UTF-8">
+    <base href="/" target="_self">
+    <title>Mean Projects</title>
+    <!-- Mobile viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta description -->
+    <meta name="description" content="Node Demo Apps created for learning">
+    <meta name="author" content="Harryi3t">
+    <link rel="stylesheet" type="text/css" href="/www/static/ngApp/libs/xeditable.css">
+    <link rel="stylesheet" type="text/css" href="/www/static/ngApp/libs/bootstrap.min.css">
+    <style type="text/css">
+    td{
+    padding: 3px 10px;
+    }
+    .glyphicon {
+      font-size: 25px;
+      color: #888;
+    }
+    .glyphicon-remove-hover{
+      color: red;
+    }
+    .glyphicon-pencil-hover{
+      color: #5bc0de;
+    }
+    .glyphicon-ok-hover{
+      color: green;
+    }
+    .todo_text{
+      font-size: 20px;
+      color: #555;
+    }
+    </style>
+    
+    <script src="/www/static/ngApp/libs/angular.min.js"></script>
+    <script src="/www/static/ngApp/libs/angular-route.min.js"></script>
+    <script src="/www/static/ngApp/libs/xeditable.min.js"></script>
+    <script src="/www/static/ngApp/app.js"></script>
+    <script src="/www/static/ngApp/scripts/home/homeCtrl.js"></script>
+  </head>
+  
+  <body class="overflow-hidden">
+    <div class="container" ng-controller="homeCtrl">
+      
+      <div class="jumbotron text-center">
+        <h1>I'm a Todo-Mean-aholic <span class="label label-info">{{ todos.length }}</span>
+        </h1>
+      </div>
+      
+      <div id="todo-list" class="row">
+        <div class="col-md-8 col-sm-offset-2">
+          <table>
+            <tr ng-repeat="todo in todos">
+              <td class="todo_text">
+                <span editable-text="todo.text" e-form="textBtnForm"> 
+                  {{ todo.text }} 
+                </span>
+              </td>
+              <td>
+                <span ng-class="glyphicon_pencil_hover?glyphicon_pencil_hover_class():
+                  glyphicon_pencil_class()" 
+                  ng-mouseleave="glyphicon_pencil_hover=false"
+                  ng-mouseover="glyphicon_pencil_hover=true" 
+                  ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible">
+                </span>
+              </td>
+              <td>
+                <span ng-class="glyphicon_ok_hover?glyphicon_ok_hover_class():
+                  glyphicon_ok_class()" 
+                  ng-mouseleave="glyphicon_ok_hover=false"
+                  ng-mouseover="glyphicon_ok_hover=true" 
+                  ng-click="completeTodo(todo._id)">
+                </span>  
+              </td>
+              <td>
+                <span ng-class="glyphicon_remove_hover?glyphicon_remove_hover_class():
+                  glyphicon_remove_class()" 
+                  ng-mouseleave="glyphicon_remove_hover=false"
+                  ng-mouseover="glyphicon_remove_hover=true" 
+                  ng-click="deleteTodo(todo._id)">
+                </span>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        
+        <div id="todo-form" class="row">
+           <div class="col-sm-8 col-sm-offset-2 text-center">
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control input-lg text-center" placeholder="Add New Todo" ng-model="formData.text">
+              </div>
+              
+              <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+            </form>
+          </div>
+        </div>
+        
+        
+      </div>
+      
+    </body>
+    
+  </html>
