@@ -1,14 +1,34 @@
 {
-  "name"         : "NodeJS-ToDo",
-  "version"      : "1.0.0",
-  "description"  : "Simple todo application.",
-  "main"         : "server.js",
-  "author"       : "Harryi3t",
-  "dependencies" : {
-    "express"    : "*",
-    "mongoose"   : "*",
+  "name": "NodeJS-ToDo",
+  "version": "0.0.1",
+  "description": "Simple todo application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "mongoose"   : "4.2.3",
     "morgan"     : "*",
     "body-parser": "*",
     "method-override": "*"
-    }
+  },
+  "engines": {
+    "node": "4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harryi3t/MEAN-Projects"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express",
+    "angular"
+  ],
+  "author": "Harryi3t",
+  "contributors": [
+    "Harendra Singh <harendra@shippable.com>"
+  ],
+  "license": "MIT"
 }
